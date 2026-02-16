@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - xavierbzz</title>
+    <meta name="description" content="About, links, and selected work from xavierbzz.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #FEFEFE;
+            --color-secondary: #2D2D2D;
+            --color-accent: #7A8471;
+            --color-supporting: #F5F5F5;
+            --color-text-light: #6B6B6B;
+            --font-display: 'Crimson Text', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 32px;
+            --spacing-xl: 48px;
+            --spacing-xxl: 64px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(254, 254, 254, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(45, 45, 45, 0.05);
+            z-index: 100;
+            padding: var(--spacing-sm) 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-secondary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-links a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: var(--color-accent);
+        }
+
+        .page-header {
+            padding: calc(var(--spacing-xxl) + 60px) var(--spacing-lg) var(--spacing-xl);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 600;
+            line-height: 1.1;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .page-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-light);
+            max-width: 700px;
+        }
+
+        .about-section {
+            padding: 0 var(--spacing-lg) var(--spacing-xxl);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+            gap: var(--spacing-xl);
+            align-items: start;
+        }
+
+        .about-card {
+            background: var(--color-supporting);
+            padding: var(--spacing-xl);
+            border-radius: 2px;
+        }
+
+        .about-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .about-text {
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .quick-list {
+            list-style: none;
+            display: grid;
+            gap: var(--spacing-sm);
+        }
+
+        .quick-list li {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--color-secondary);
+        }
+
+        .links-section {
+            padding: 0 var(--spacing-lg) var(--spacing-xxl);
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .link-card {
+            border: 1px solid rgba(45, 45, 45, 0.1);
+            padding: var(--spacing-lg);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            background: var(--color-primary);
+        }
+
+        .link-card:hover {
+            border-color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        .link-title {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .link-note {
+            color: var(--color-text-light);
+            font-size: 0.9rem;
+        }
+
+        .works-section {
+            padding: 0 var(--spacing-lg) var(--spacing-xxl);
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .work-card {
+            border: 1px solid rgba(45, 45, 45, 0.1);
+            padding: var(--spacing-lg);
+            background: var(--color-primary);
+        }
+
+        .work-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .work-meta {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--color-accent);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .work-text {
+            color: var(--color-text-light);
+            font-size: 0.95rem;
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer {
+            padding: var(--spacing-xl) var(--spacing-lg);
+            text-align: center;
+            border-top: 1px solid rgba(45, 45, 45, 0.1);
+        }
+
+        .footer-text {
+            color: var(--color-text-light);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 900px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 var(--spacing-md);
+            }
+
+            .nav-links {
+                gap: var(--spacing-md);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">xavierbzz</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="writing.html">Writing</a></li>
+                <li><a href="visual.html" class="active">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">About</h1>
+            <p class="page-subtitle">
+                A small space to share who I am, where to find me, and the work I care about most.
+            </p>
+        </div>
+    </header>
+
+    <section class="about-section">
+        <div class="container about-grid">
+            <div class="about-card">
+                <h2 class="about-title">About Me</h2>
+                I’m Xavier, a 21-year-old from Queensbridge, NY.
+This space is where I document growth in real time.
+From content creation and video editing to photography and building technical skills, this site reflects what I’m learning and who I’m becoming. Some work is experimental. Some is polished. All of it is part of the process.
+Over time, this will evolve into both a creative archive and a professional portfolio — a record of the skills I build and the ideas I care enough to explore deeply.
+            </div>
+            <ul class="quick-list"></ul>
+        </div>
+    </section>
+
+    <section class="links-section">
+        <div class="container">
+            <h2 class="section-title">Links</h2>
+            <div class="links-grid">
+                <a class="link-card" href="mailto:xavierbenjamin950@gmail.com">
+                    <div class="link-title">Work Email</div>
+                    <div class="link-note">For collaborations and inquiries.</div>
+                </a>
+                <a class="link-card" href="mailto:xavierbenjamin704@gmail.com">
+                    <div class="link-title">Personal Email</div>
+                    <div class="link-note">Personal notes and catch-ups.</div>
+                </a>
+                <a class="link-card" href="https://www.youtube.com/@bzzbanned" target="_blank" rel="noopener noreferrer">
+                    <div class="link-title">YouTube</div>
+                    <div class="link-note">Videos and breakdowns.</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-text">© 2025 xavierbzz. A quiet corner of the internet.</p>
+        </div>
+    </footer>
+</body>
+</html>
